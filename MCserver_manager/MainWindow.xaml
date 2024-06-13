@@ -1,0 +1,42 @@
+﻿<Window x:Class="MCserver_manager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MCserver_manager"
+        mc:Ignorable="d"
+        Title="MCserver Manager"
+        Height="250"
+        Width="400">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center"
+                   Margin="0,49,0,0"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top"
+                   Width="228"><Run Text="Select " /><Run Language="ja-jp"
+                                                          Text="server jar" /><Run Text=" " /><Run Language="ja-jp"
+                                                                                                   Text="file" /></TextBlock>
+        <Button Content="新規作成！"
+                HorizontalAlignment="Center"
+                Margin="0,134,0,0"
+                VerticalAlignment="Top"
+                Width="228"
+                Click="Button_Click_1" />
+        <TextBox x:Name="TextBox1"
+                 HorizontalAlignment="Left"
+                 Margin="79,70,0,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="181"
+                 Height="20"
+                 Text="パスを入力"
+                 TextChanged="TextBox_TextChanged_1" />
+        <Button Content="参照"
+                HorizontalAlignment="Left"
+                Margin="265,70,0,0"
+                VerticalAlignment="Top"
+                Width="43"
+                Click="Button_Click" />
+
+    </Grid>
+</Window>
