@@ -1,5 +1,6 @@
 # MCserver manager
-
+## 概要
+ほとんど自分用のMinecraft Server作成ソフトウェアです。
 ## 使用方法
 ①リリースから最新のzipファイルをダウンロードします。
 
