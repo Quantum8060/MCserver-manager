@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:MCserver_manager"
         mc:Ignorable="d"
         Title="MCserver Manager"
-        Height="250"
-        Width="400">
+        Height="375"
+        Width="600">
     <Grid>
-        <TextBlock HorizontalAlignment="Center"
-                   Margin="0,43,0,0"
+        <TextBlock HorizontalAlignment="Left"
+                   Margin="147,43,0,0"
                    TextWrapping="Wrap"
                    VerticalAlignment="Top"
                    Width="228"><Run Text="Select " /><Run Language="ja-jp"
@@ -18,42 +18,37 @@
                                                                                                    Text="file" /></TextBlock>
         <Button Content="新規作成！"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="228"
-                Click="Button_Click_1" />
+                VerticalAlignment="Top"
+                Width="308"
+                Click="Button_Click_1"
+                Margin="0,99,0,0" />
         <TextBox x:Name="TextBox1"
                  HorizontalAlignment="Left"
-                 Margin="79,64,0,0"
+                 Margin="146,64,0,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="181"
+                 Width="260"
                  Height="20"
                  Text="パスを入力"
                  TextChanged="TextBox_TextChanged_1" />
         <Button Content="参照"
                 HorizontalAlignment="Left"
-                Margin="265,64,0,0"
+                Margin="411,64,0,0"
                 VerticalAlignment="Top"
                 Width="43"
                 Click="Button_Click" />
-        <Button Content="参照"
-                HorizontalAlignment="Left"
-                Margin="265,172,0,0"
-                VerticalAlignment="Top"
-                Width="43"
-                Click="Button_Click_2" />
         <TextBlock HorizontalAlignment="Left"
-                   Margin="79,151,0,0"
+                   Margin="147,175,0,0"
                    TextWrapping="Wrap"
                    VerticalAlignment="Top"
                    Width="229"><Run Language="ja-jp"
                                     Text="既存のサーバーを起動する方はこちら。" /></TextBlock>
-        <TextBox HorizontalAlignment="Left"
-                 Margin="79,172,0,0"
-                 TextWrapping="Wrap"
-                 Text="パスを入力"
-                 VerticalAlignment="Top"
-                 Width="181" />
+        <Button Content="サーバー起動！"
+                HorizontalAlignment="Center"
+                Margin="0,196,0,0"
+                VerticalAlignment="Top"
+                Width="307"
+                Click="Button_Click_3" />
 
     </Grid>
 </Window>

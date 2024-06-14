@@ -1,17 +1,7 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
-using System.Net.Http;
 using Microsoft.Win32;
-using System.IO.Compression;
 using System.Diagnostics;
 
 
@@ -27,32 +17,23 @@ namespace MCserver_manager
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            OpenFolderDialog dialog = new OpenFolderDialog()
+            OpenFileDialog dialog = new OpenFileDialog()
             {
-                Title = "サーバーを置くディレクトリの選択",
+                Title = "サーバーにするjarファイルを選択",
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
                 Multiselect = false
             };
 
-            string folderName = "";
+            string fileName = "";
             if (dialog.ShowDialog() == true)
             {
-                folderName = dialog.FolderName;
+                fileName = dialog.FileName;
             }
 
-            this.TextBox1.Text = folderName;
+            this.TextBox1.Text = fileName;
 
         }
 
@@ -62,18 +43,22 @@ namespace MCserver_manager
 
             if (result == MessageBoxResult.Yes)
             {
-                string folderName = TextBox1.Text;
+                string fileName = TextBox1.Text;
 
-                File.Delete(@$"{folderName}\run.bat");
-                File.Delete(@$"{folderName}\eula.txt");
-                File.AppendAllText(@$"{folderName}\run.bat", "@echo off\r\njava -Xmx4G -Xms4G -jar server.jar\r\npause");
-                File.AppendAllText(@$"{folderName}\eula.txt", "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.ms/MinecraftEULA).\r\n#Fri Jun 14 00:36:47 GMT+09:00 2024\r\neula = true");
+                string foldername = Directory.GetCurrentDirectory();
+
+                File.Move(@$"{fileName}", @$"{foldername}\server.jar");
+
+                File.Delete(@$"{foldername}\run.bat");
+                File.Delete(@$"{foldername}\eula.txt");
+                File.AppendAllText(@$"{foldername}\run.bat", "@echo off\r\njava -Xmx4G -Xms4G -jar server.jar\r\npause");
+                File.AppendAllText(@$"{foldername}\eula.txt", "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.ms/MinecraftEULA).\r\n#Fri Jun 14 00:36:47 GMT+09:00 2024\r\neula = true");
 
                 MessageBox.Show("サーバーを起動します。");
 
                 var app = new ProcessStartInfo();
 
-                app.FileName = @$"{folderName}\run.bat";
+                app.FileName = @$"{foldername}\run.bat";
                 app.CreateNoWindow = true;
                 app.UseShellExecute = false;
 
@@ -95,10 +80,21 @@ namespace MCserver_manager
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            string foldername = Directory.GetCurrentDirectory();
 
+            var app = new ProcessStartInfo();
+
+            app.FileName = @$"{foldername}\run.bat";
+            app.CreateNoWindow = true;
+            app.UseShellExecute = false;
+
+            Process.Start(app);
+
+            MessageBox.Show("サーバーを起動します。");
+
+            this.Close();
         }
     }
 }
-
