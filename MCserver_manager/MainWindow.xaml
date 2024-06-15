@@ -21,7 +21,7 @@
                 VerticalAlignment="Top"
                 Width="308"
                 Click="Button_Click_1"
-                Margin="0,99,0,0" />
+                Margin="0,141,0,0" />
         <TextBox x:Name="TextBox1"
                  HorizontalAlignment="Left"
                  Margin="146,64,0,0"
@@ -38,17 +38,41 @@
                 Width="43"
                 Click="Button_Click" />
         <TextBlock HorizontalAlignment="Left"
-                   Margin="147,175,0,0"
+                   Margin="147,206,0,0"
                    TextWrapping="Wrap"
                    VerticalAlignment="Top"
                    Width="229"><Run Language="ja-jp"
                                     Text="既存のサーバーを起動する方はこちら。" /></TextBlock>
         <Button Content="サーバー起動！"
                 HorizontalAlignment="Center"
-                Margin="0,196,0,0"
+                Margin="0,227,0,0"
                 VerticalAlignment="Top"
                 Width="307"
                 Click="Button_Click_3" />
+        <Slider x:Name="Slider1"
+                HorizontalAlignment="Left"
+                Margin="183,118,0,0"
+                VerticalAlignment="Top"
+                Width="271"
+                ValueChanged="Slider_ValueChanged"
+                Minimum="0"
+                IsSnapToTickEnabled="True"
+                TickFrequency="1"
+                SmallChange="1" />
+        <TextBlock HorizontalAlignment="Center"
+                   Margin="0,97,0,0"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top"
+                   Width="306"><Run Language="ja-jp"
+                                    Text="メモリ割り当てを選択" /></TextBlock>
+        <TextBox x:Name="TextBox2"
+                 HorizontalAlignment="Left"
+                 Margin="146,118,0,0"
+                 TextWrapping="Wrap"
+                 Text="1"
+                 VerticalAlignment="Top"
+                 Width="32"
+                 TextChanged="TextBox2_TextChanged" />
 
     </Grid>
 </Window>
