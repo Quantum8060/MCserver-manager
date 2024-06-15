@@ -55,7 +55,7 @@ namespace MCserver_manager
 
                 File.Copy(@$"{fileName}", @$"{foldername}\server.jar");
 
-                string s = "@echo off" + Environment.NewLine + $"java -Xmx{ramPath}G -Xms{ramPath}G -jar server.jar" + Environment.NewLine + "pause";
+                string s = "@echo off" + Environment.NewLine + $"java -Xmx{ramPath}G -Xms{ramPath}G -jar server.jar nogui" + Environment.NewLine + "pause";
                 File.AppendAllText(@$"{foldername}\run.bat", @$"{s}");
                 File.AppendAllText(@$"{foldername}\eula.txt", "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.ms/MinecraftEULA).\r\n#Fri Jun 14 00:36:47 GMT+09:00 2024\r\neula = true");
 
@@ -64,7 +64,6 @@ namespace MCserver_manager
                 var app = new ProcessStartInfo();
 
                 app.FileName = @$"{foldername}\run.bat";
-                app.CreateNoWindow = true;
                 app.UseShellExecute = false;
 
                 Process.Start(app);
@@ -102,12 +101,12 @@ namespace MCserver_manager
             TextBox2.Text = Slider1.Value.ToString();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
         }
 
-        private void TextBox2_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void TextBox2_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
